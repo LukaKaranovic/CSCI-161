@@ -1,0 +1,56 @@
+#######################################################################
+# @file: QUIZ
+# @student: Luka Karanovic, 665778833, S24N02
+# @date: January 20, 2023
+#######################################################################
+
+Answer true or false to the following questions.
+
+Q1:Header files have .h and implementation files have .cpp extensions in the name.
+A1: true
+
+
+
+Q2:Header files define both the prototype and the body of the functions.
+A2: false
+
+
+
+Q3:An implementation file must comply with the prototype of the functions defined in its header file.
+A3: true
+
+
+
+Q4:One implementation file usually implements the functions of one header file.
+A4: true
+
+
+Q5:Implementation files modify the body of the functions defined in the header files.
+A5: true
+
+
+
+Q6:Both header and implementation files include each other in order to comply with each other.
+A6: false
+
+
+ 
+Q7:More than one implementation files can define main() function of an application.
+A7: false
+
+
+
+Q8:Each header file is compiled to create an object file.
+A8: false
+
+
+
+Q9:Each implementation file is compiled to create an object file.
+A9: true
+
+
+
+Q10:Object files are linked to create an executable file.
+A10: true
+
+

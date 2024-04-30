@@ -1,0 +1,199 @@
+==2825287== Memcheck, a memory error detector
+==2825287== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2825287== Using Valgrind-3.16.1 and LibVEX; rerun with -h for copyright info
+==2825287== Command: bin/simpleset
+==2825287== 
+Using SimpleSet default constructor and insert function.........................
+Capacity: 10, size: 0
+............. simple set size: 1, after inserting: 10
+............. simple set size: 2, after inserting: 20
+............. simple set size: 3, after inserting: 30
+............. simple set size: 4, after inserting: 40
+............. simple set size: 5, after inserting: 50
+Using insertion << operator to show elements....................................
+10 20 30 40 50 
+
+Using SimpleSet regular constructor and insert function.........................
+Capacity: 5, size: 0
+............. simple set size: 1, after inserting: 10
+............. simple set size: 2, after inserting: 20
+............. simple set size: 3, after inserting: 30
+............. simple set size: 4, after inserting: 40
+............. simple set size: 5, after inserting: 50
+10 20 30 40 50 
+
+Using Overloaded Regular Constructor...........................................
+Capacity: 10 size: 10 with no duplicate data
+10 20 30 40 50 60 70 80 90 100 
+Capacity: 10 size: 10 with duplicate data
+10 20 20 40 40 60 70 80 80 100 
+
+Using SimpleSet copy constructor................................................
+Capacity: 5 size: 5 copy constructed
+10 20 30 40 50 
+
+Using SimpleSet move constructor................................................
+Capacity: 10 size: 10 move constructed
+10 20 30 40 50 60 70 80 90 100 
+
+Using SimpleSet copy assignment.................................................
+Capacity: 5 size: 5 copy assigned
+10 20 30 40 50 
+
+Using SimpleSet move assignment.................................................
+Capacity: 10, size: 10 move assigned
+10 20 30 40 50 60 70 80 90 100 
+
+Using SimpleSet insert function.................................................
+Capacity: 5, size: 5 after attempting to insert a duplicate element 30
+10 20 30 40 50 
+Capacity: 10, size: 6 after insert a unique element 60
+10 20 30 40 50 60 
+
+Using SimpleSet erase function..................................................
+==2825287== Invalid read of size 4
+==2825287==    at 0x10D0C3: DynamicArray::erase(int) (dynamicarray.cpp:105)
+==2825287==    by 0x10AF7A: main (simplesetmain.cpp:167)
+==2825287==  Address 0x4d8d118 is 0 bytes after a block of size 40 alloc'd
+==2825287==    at 0x483950F: operator new[](unsigned long) (vg_replace_malloc.c:431)
+==2825287==    by 0x10CCB1: DynamicArray::DynamicArray(DynamicArray const&) (dynamicarray.cpp:34)
+==2825287==    by 0x10C4AA: SimpleSet::SimpleSet(SimpleSet const&) (simpleset.cpp:32)
+==2825287==    by 0x10C611: SimpleSet::operator=(SimpleSet&&) (simpleset.cpp:54)
+==2825287==    by 0x10AC83: main (simplesetmain.cpp:140)
+==2825287== 
+==2825287== Invalid write of size 4
+==2825287==    at 0x10D0E2: DynamicArray::erase(int) (dynamicarray.cpp:106)
+==2825287==    by 0x10AF7A: main (simplesetmain.cpp:167)
+==2825287==  Address 0x4d8d118 is 0 bytes after a block of size 40 alloc'd
+==2825287==    at 0x483950F: operator new[](unsigned long) (vg_replace_malloc.c:431)
+==2825287==    by 0x10CCB1: DynamicArray::DynamicArray(DynamicArray const&) (dynamicarray.cpp:34)
+==2825287==    by 0x10C4AA: SimpleSet::SimpleSet(SimpleSet const&) (simpleset.cpp:32)
+==2825287==    by 0x10C611: SimpleSet::operator=(SimpleSet&&) (simpleset.cpp:54)
+==2825287==    by 0x10AC83: main (simplesetmain.cpp:140)
+==2825287== 
+Size 9 after erasing 30
+10 20 40 50 60 70 80 90 100 
+Using SimpleSet erasing a non-existing element 30
+Size: 9 after erasing a non-exisitng element 30
+10 20 40 50 60 70 80 90 100 
+
+Using SimpleSet clear function..................................................
+Capacity: 10, size: 0
+
+
+Using SimpleSet insert function......................................
+Capacity: 10, size: 10 with unique data set
+10 20 30 40 50 60 70 80 90 100 
+Capacity: 10, size: 7 with duplicate data set
+10 20 40 60 70 80 100 
+
+Using SimpleSet inherited elements function......................................
+
+10 20 40 60 70 80 100 
+Using extraction >> operator ...................................................
+.......prime set: 2 3 5 7 11 13 17 19 23 29 
+......fobonacci set: 2 3 5 7 11 13 17 19 23 29 
+
+Using SimpleSet set union (operator+)......................................
+Prime UNION Fibonacci: 2 3 5 7 11 13 17 19 23 29 
+
+Using SimpleSet set difference using (operator-).................................
+Prime DIFERENCE Fibonacci: 
+
+Using SimpleSet set intersection using (operator*)...............................
+Prime INTERSECTION Fibonacci: 2 3 5 7 11 13 17 19 23 29 
+
+Using SimpleSet index [] operator ..............................................
+sset8[3]: 7
+sset8[5]: 13
+sset8[11]: Index 11 is out of bounds!
+==2825287== Conditional jump or move depends on uninitialised value(s)
+==2825287==    at 0x498C82C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x4999E75: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x10B962: main (simplesetmain.cpp:298)
+==2825287== 
+==2825287== Use of uninitialised value of size 8
+==2825287==    at 0x498C583: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x498C856: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x4999E75: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x10B962: main (simplesetmain.cpp:298)
+==2825287== 
+==2825287== Conditional jump or move depends on uninitialised value(s)
+==2825287==    at 0x498C595: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x498C856: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x4999E75: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x10B962: main (simplesetmain.cpp:298)
+==2825287== 
+==2825287== Conditional jump or move depends on uninitialised value(s)
+==2825287==    at 0x498C88B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x4999E75: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x10B962: main (simplesetmain.cpp:298)
+==2825287== 
+-16779360
+sset8[-1]: Index -1 is out of bounds!
+==2825287== Conditional jump or move depends on uninitialised value(s)
+==2825287==    at 0x498C82C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x4999E75: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x10B9AD: main (simplesetmain.cpp:305)
+==2825287== 
+==2825287== Use of uninitialised value of size 8
+==2825287==    at 0x498C583: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x498C856: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x4999E75: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x10B9AD: main (simplesetmain.cpp:305)
+==2825287== 
+==2825287== Conditional jump or move depends on uninitialised value(s)
+==2825287==    at 0x498C595: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x498C856: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x4999E75: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x10B9AD: main (simplesetmain.cpp:305)
+==2825287== 
+==2825287== Conditional jump or move depends on uninitialised value(s)
+==2825287==    at 0x498C88B: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x4999E75: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2825287==    by 0x10B9AD: main (simplesetmain.cpp:305)
+==2825287== 
+-16779360
+
+Using SimpleSet post increment operator.........................................
+... prime set before increment 2 3 5 7 11 13 17 19 23 29 
+... prime set after increment 3 4 6 8 12 14 18 20 24 30 
+
+Using SimpleSet pre increment operator..........................................
+... prime set before increment 3 4 6 8 12 14 18 20 24 30 
+... prime set after increment 4 5 7 9 13 15 19 21 25 31 
+
+Using SimpleSet post deccrement operator........................................
+... prime set before deccrement 4 5 7 9 13 15 19 21 25 31 
+... prime set after deccrement 3 4 6 8 12 14 18 20 24 30 
+
+Using SimpleSet pre deccrement operator.........................................
+... prime set before deccrement 3 4 6 8 12 14 18 20 24 30 
+... prime set after deccrement 2 3 5 7 11 13 17 19 23 29 
+
+Using SimpleSet load() function.................................................
+2 3 5 7 11 13 17 19 23 29 
+
+Using SimpleSet == operator.....................................................
+SimpleSets sset2 and sset3 are not equal
+SimpleSets sset8 and sset10 are equal
+
+Using SimpleSet save() function.................................................
+2 3 5 7 11 13 17 19 23 29 
+
+==2825287== 
+==2825287== HEAP SUMMARY:
+==2825287==     in use at exit: 100 bytes in 3 blocks
+==2825287==   total heap usage: 33 allocs, 30 frees, 124,984 bytes allocated
+==2825287== 
+==2825287== LEAK SUMMARY:
+==2825287==    definitely lost: 100 bytes in 3 blocks
+==2825287==    indirectly lost: 0 bytes in 0 blocks
+==2825287==      possibly lost: 0 bytes in 0 blocks
+==2825287==    still reachable: 0 bytes in 0 blocks
+==2825287==         suppressed: 0 bytes in 0 blocks
+==2825287== Rerun with --leak-check=full to see details of leaked memory
+==2825287== 
+==2825287== Use --track-origins=yes to see where uninitialised values come from
+==2825287== For lists of detected and suppressed errors, rerun with: -s
+==2825287== ERROR SUMMARY: 38 errors from 10 contexts (suppressed: 0 from 0)

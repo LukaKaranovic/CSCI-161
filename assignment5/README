@@ -1,0 +1,104 @@
+# Dynamic Array, ArrayMap, and LinkedMap
+
+This is an application that implements classes for the dynamic array data structure and the array map and linked list map abstract data types. Use this program to implement
+said data structures/types and their classes for use in other applications. Class methods include traversing, inserting, removing, searching, etc.
+
+
+
+## Technologies
+
+This application has been developed using C++ programming language. This application can be built and run on a system with a GCC compiler. Unix make utility is necessary 
+to build as well as to run the unit test of this application. 
+
+To perform unit test of this application GCC compiler must have Boost Unit Test Library installed. This application has been tested on Debian 4.9 (Linux) with GCC 6.3.0 
+and BOOST 1.62. 
+
+
+
+## Build and Installation
+
+To build this application from the source code enter following command from the root directory of this application.
+
+	>make
+
+To clean the files from the previous build of the application enter following command from the root directory of the application.
+
+	>make clean
+
+There is no installation script to install this application automatically. However, you can manually install this application by copying the executable file (any of the 
+sort files) from the 'bin' subdirectory of this application to a system directory, for example, '/usr/local/bin', that is listed in the '$PATH' environment variable of 
+your system. You need system privileges in order to copy the executable into your target directory.
+
+
+
+## Usage
+
+You can run the arraymap, linkedmap, and map executables of this application one after another from the root directory of this application by entering the following 
+command.
+
+	>make run
+	
+You can run the arraymap executable of this application from the root directory of this application by entering the following command.
+
+	>make run-array-map
+
+You can run the arraymap executable of this application from the root directory of this application by entering the following command.
+
+    >make run-linked-map
+
+You can run the arraymap executable of this application from the root directory of this application by entering the following command.
+
+	>make run-map
+
+You can run the arraymap, linkedmap, and map unit tests of this application one after another from the root directory of this application by entering the following 
+command.
+
+	>make test
+
+You can run the 'arraymap' unit test of this application from the root directory of this application by entering the following command.
+
+	>make test-array-map
+
+You can run the 'linkedmap' unit test of this application from the root directory of this application by entering the following command.
+
+	>make test-linked-map
+	
+You can run the 'map' unit test of this application from the root directory of this application by entering the following command.
+
+	>make test-map
+
+
+If you have manually installed 'arraymap' by copying 'bin/arraymap' executable file in your system directory, for example, in '/usr/local/bin', which is 
+listed in your '$PATH' environment variable, you can run 'arraymap' by inputting the following on the command prompt from your local folder:
+
+    >bin/arraymap 
+    
+If you have manually installed 'linkedmap' by copying 'bin/linkedmap' executable file in your system directory, for example, in '/usr/local/bin', which is 
+listed in your '$PATH' environment variable, you can run 'linkedmap' by inputting the following on the command prompt from your local folder:
+
+    >bin/linkedmap 
+    
+If you have manually installed 'map' by copying 'bin/map' executable file in your system directory, for example, in '/usr/local/bin', which is 
+listed in your '$PATH' environment variable, you can run 'map' by inputting the following on the command prompt from your local folder:
+
+    >bin/map 
+    
+
+
+## Contributors
+
+Developer: Luka Karanovic, 665778833, S24N02, CSCI 161, VIU.
+Specification: Dr. Humayun Kabir, Instructor, CSCI 161, Spring 2021, VIU.
+
+
+
+## License
+
+This is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either 
+version 3 of the License, or (at your option) any later version.
+
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this software. If not, see <https://www.gnu.org/licenses/>. Terms and conditions or the 
+types of licenses granted to use this application go here.
